@@ -10,8 +10,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Autofac\**" />
+    <Content Remove="Autofac\**" />
+    <EmbeddedResource Remove="Autofac\**" />
+    <None Remove="Autofac\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\vetClinic.Services\vetClinic.Services.csproj" />
   </ItemGroup>
 
 </Project>

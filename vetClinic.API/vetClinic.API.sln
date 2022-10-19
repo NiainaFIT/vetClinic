@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vetClinic.API", "vetClinic.API.csproj", "{BC7B8327-F7B8-4595-8423-CD7FC8F4C338}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vetClinic.API", "vetClinic.API.csproj", "{BC7B8327-F7B8-4595-8423-CD7FC8F4C338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vetClinic.Services", "..\vetClinic.Services\vetClinic.Services.csproj", "{9B4DCA3D-B8EA-437B-9DB8-AD4DF4BC7A5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vetClinic.Services", "..\vetClinic.Services\vetClinic.Services.csproj", "{9B4DCA3D-B8EA-437B-9DB8-AD4DF4BC7A5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vetClinic.WinUI", "..\vetClinic.WinUI\vetClinic.WinUI.csproj", "{39D94CBD-C1F5-492B-BF97-E8AA005A806B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vetClinic.Model", "..\vetClinic.Model\vetClinic.Model.csproj", "{DCF6B71E-8F54-4A6C-A202-DAC23150592A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{9B4DCA3D-B8EA-437B-9DB8-AD4DF4BC7A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B4DCA3D-B8EA-437B-9DB8-AD4DF4BC7A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B4DCA3D-B8EA-437B-9DB8-AD4DF4BC7A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D94CBD-C1F5-492B-BF97-E8AA005A806B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D94CBD-C1F5-492B-BF97-E8AA005A806B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D94CBD-C1F5-492B-BF97-E8AA005A806B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D94CBD-C1F5-492B-BF97-E8AA005A806B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCF6B71E-8F54-4A6C-A202-DAC23150592A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF6B71E-8F54-4A6C-A202-DAC23150592A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF6B71E-8F54-4A6C-A202-DAC23150592A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF6B71E-8F54-4A6C-A202-DAC23150592A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
