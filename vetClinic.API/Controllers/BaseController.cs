@@ -8,9 +8,9 @@ namespace vetClinic.API.Controllers
     [Route("[controller]")]
     public class BaseController<T, TSearch> : ControllerBase where T:class where TSearch : class
     {
-       public IService<T, TSearch> _service { get; set; }
+       public IReadService<T, TSearch> _service { get; set; }
 
-        public BaseController(IService<T, TSearch> service)
+        public BaseController(IReadService<T, TSearch> service)
         {
             _service = service;
         }

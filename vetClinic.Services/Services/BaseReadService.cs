@@ -11,18 +11,18 @@ using vetClinic.Services.Interfaces;
 
 namespace vetClinic.Services.Services
 {
-    public partial class BaseService<T, TDb, TSearch> : IService<T, TSearch> where T : class where TDb : class where TSearch : BaseSearchObject
+    public partial class BaseReadService<T, TDb, TSearch> : IReadService<T, TSearch> where T : class where TDb : class where TSearch : BaseSearchObject
     {
         public VetStationDbContext _context { get; set; }
         public IMapper _mapper { get; set; }
 
-        public BaseService(VetStationDbContext context, IMapper mapper)
+        public BaseReadService(VetStationDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public virtual async Task<IEnumerable<T>> Get(TSearch search = null)
+        public virtual async Task<IEnumerable<T>> Get(TSearch search)
         {
             var entity = _context.Set<TDb>().AsQueryable();
 
@@ -40,6 +40,13 @@ namespace vetClinic.Services.Services
         public virtual IQueryable<TDb> AddFilter(IQueryable<TDb> query, TSearch search = null)
         {
             return query;
+        }
+
+        public virtual async Task<T> GetById(int id)
+        {
+            var set = _context.Set<TDb>();
+            var entity = await set.FindAsync(id);
+            return _mapper.Map<T>(entity);
         }
     }
 }

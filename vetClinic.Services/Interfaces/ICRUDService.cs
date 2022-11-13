@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace vetClinic.Services.Interfaces
 {
-    public interface ICRUDService<T, TSearch, TInsert, TUpdate> : IService<T, TSearch> where T : class
+    public interface ICRUDService<T, TSearch, TInsert, TUpdate> : IReadService<T, TSearch> where T : class
         where TSearch : class where TInsert : class where TUpdate : class
     {
         Task<T> Insert(TInsert insert);

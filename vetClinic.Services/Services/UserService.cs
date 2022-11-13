@@ -7,21 +7,43 @@ using vetClinic.Services.Database;
 using vetClinic.Services.Interfaces;
 using AutoMapper;
 using vetClinic.Model.SearchObjects;
+using vetClinic.Model.Requests;
+using
+using vetClinic.API.Security;
 
 namespace vetClinic.Services.Services
 {
-    public class UserService : BaseCRUDService<Model.User, Database.User, BaseSearchObject, object, object>, IUserService
+    public class UserService : BaseCRUDService<Model.User, Database.User, BaseSearchObject, UserInsertRequest, UserUpdateRequest>, IUserService
     {
-        public UserService(VetStationDbContext context, IMapper mapper)
-            :base(context, mapper)
+        public UserService(VetStationDbContext context, IMapper mapper) : base(context, mapper)
         {
         }
 
-        //public IEnumerable<Model.User> Get()
-        //{
-        //    List<Model.User> users = new List<Model.User>();
-        //    var result = _context.Users.ToList();
-        //    return _mapper.Map<List<Model.User>>(result);
-        //}
+        public async Task<IEnumerable<Model.User>> Get(UserSearchObject search = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override async Task<Model.User> Insert(UserInsertRequest request)
+        {
+            var entity = base.Insert(request)?.Result;
+            
+            foreach (var roleID in request.RoleIDs)
+            {
+                UserRole role = new UserRole();
+                role.UserId = entity.UserId;
+                role.RoleId = roleID;
+                _context.UserRoles.Add(role);
+            }
+            await _context.SaveChangesAsync();
+            return entity;
+        }
+
+        public override void BeforeInsert(UserInsertRequest insert, User entity)
+        {
+            var salt = entity.PasswordSalt = PasswordEncriptionHelper.GenerateSalt();
+            entity.PasswordHash = PasswordEncriptionHelper.GenerateHash(salt, insert.Password);
+            base.BeforeInsert(insert, entity);
+        }
     }
 }

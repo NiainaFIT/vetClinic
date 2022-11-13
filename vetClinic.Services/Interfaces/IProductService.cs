@@ -10,7 +10,7 @@ using vetClinic.Services.Services;
 
 namespace vetClinic.Services.Interfaces
 {
-    public interface IProductService : ICRUDService<Product, ProductSearchObject, ProductInsertRequest, ProductUpdateRequest>, IService<Model.Product, ProductSearchObject>
+    public interface IProductService : ICRUDService<Product, ProductSearchObject, ProductInsertRequest, ProductUpdateRequest>, IReadService<Model.Product, ProductSearchObject>
     {
 
     }
